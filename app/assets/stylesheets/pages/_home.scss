@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+
+.carousel img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+  margin: 0 auto
+}
