@@ -1,0 +1,10 @@
+<h1>Offering list</h1>
+
+<% @offerings.each do |offering| %>
+<ul>
+  <li><%= link_to offering.title, speaker_offering_path(offering) %></li>
+  <li>Topic :<%= offering.topic %></li>
+  <li><%= offering.localisation %></li>
+  <li><%= offering.budget %></li>
+</ul>
+<% end %>
