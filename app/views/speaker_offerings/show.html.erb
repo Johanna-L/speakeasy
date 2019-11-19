@@ -1,0 +1,11 @@
+<h1><%= @offering.title %></h1>
+<ul>
+  <li>Sujet de prédilection : <%= @offering.topic %></li>
+  <li>Localisation : <%= @offering.localisation %></li>
+  <li>Budget : <%= @offering.budget%></li>
+  <li>Nom : <%= @offering.user.first_name %> <%= @offering.user.last_name %><</li>
+  <li>Entreprise: <%= @offering.user.company %></li>
+</ul>
+
+<%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success"%>
+

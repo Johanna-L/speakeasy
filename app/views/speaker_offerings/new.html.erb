@@ -1,0 +1,12 @@
+<div class = "container">
+  <h1>Créer une nouvelle prestation</h1>
+  <%= simple_form_for(@offering) do |f| %>
+    <%= f.input :title,  placeholder: "Titre de votre prestation"%>
+    <%= f.input :topic, placeholder: "Mon sujet de prédilection" %>
+    <%= f.input :localisation, placeholder: "Ma ville d'intervention" %>
+    <%= f.input :budget  placeholder: "Tarif"%>
+    <%= f.submit 'Enregistrer ma prestation', class:'btn btn-primary' %>
+  <% end %>
+</div>
+
+
