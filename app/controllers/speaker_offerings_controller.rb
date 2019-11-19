@@ -13,13 +13,17 @@ class SpeakerOfferingsController < ApplicationController
 
   def create
     @offering = SpeakerOffering.new(offering_params)
-    @offering.save
-    redirect_to speaker_offering_path(@offering)
+    @offering.user = current_user
+    if @offering.save
+      redirect_to speaker_offering_path(@offering)
+    else
+      render :new
+    end
   end
 
   private
 
   def offering_params
-    params.require(:offering).permit(:topic, :localisation, :budget)
+    params.require(:speaker_offering).permit(:title, :topic, :localisation, :budget)
   end
 end
