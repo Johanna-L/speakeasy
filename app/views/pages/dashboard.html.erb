@@ -1,124 +1,135 @@
-<h1>Mon profil</h1>
+<div class="container">
+<div class="d-flex justify-content-between pt-3">
 
-<div>
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
+  <div>
+    <h1 class="mb-3">Mon profil</h1>
+    <p><strong>Nom: </strong><%= @user.first_name.capitalize %>
+    <%= @user.last_name.upcase %></p>
+    <p><strong>Email: </strong>
+    <%= @user.email %></p>
+
+    <% if @user.background %>
+      <p><strong>Bio: </strong><%= @user.background %></p>
+      <p><strong>Réseaux sociaux: </strong><%= @user.social_media %></p>
+    <% end %>
+
+    <% if @user.company_name %>
+      <p><strong>Entreprise: </strong><%= @user.company_name %></p>
+      <p><strong>Informations: </strong><%= @user.company_info %></p>
+    <% end %>
+  </div>
+  <%= image_tag @user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
+
 </div>
 
-<%= image_tag @user.photo, alt: "profile_pic", style:"width: 200px" %>
+  <!-- For organizer -->
+  <% if @upcoming_bookings.any? %>
+    <h2 class="pt-3">Mes réservations à venir</h2>
+      <table class="table">
+      <tr>
+        <th>Date</th>
+        <th>Titre</th>
+        <th>Intervenant</th>
+      </tr>
 
-<div>
-<%= @user.background %>
-<%= @user.social_media %>
+      <tr>
+        <% @upcoming_bookings.each do |booking| %>
+          <td><%= booking.date.strftime('%d/%m/%Y') %></td>
+          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.user.first_name.capitalize %>
+              <%= booking.speaker_offering.user.last_name.upcase %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+
+  <% if @past_bookings.any? %>
+    <h2 class="py-3">Mes réservations passées</h2>
+    <table class="table">
+      <tr>
+        <th>Date</th>
+        <th>Titre</th>
+        <th>Intervenant</th>
+        <th>Rating</th>
+        <th>Commentaire</th>
+      </tr>
+
+      <tr>
+        <% @past_bookings.each do |booking| %>
+          <td><%= booking.date.strftime('%d/%m/%Y') %></td>
+          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.user.first_name.capitalize %>
+              <%= booking.speaker_offering.user.last_name.upcase %>
+          </td>
+          <td><%= booking.rating %></td>
+          <td>
+            <% if booking.review %>
+              <%= booking.review %>
+            <% else %>
+              <%= link_to 'Evaluer la prestation', '#', class:'btn btn-success' %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+
+  <!-- For speaker -->
+  <% if @upcoming_speaker_bookings.any? %>
+    <h2 class="py-3">Mes interventions à venir</h2>
+      <table class="table">
+      <tr>
+        <th>Date</th>
+        <th>Titre</th>
+        <th>Client</th>
+      </tr>
+
+      <tr>
+        <% @upcoming_speaker_bookings.each do |booking| %>
+          <td><%= booking.date %></td>
+          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.user.first_name.capitalize %>
+              <%= booking.user.last_name.upcase %>
+          </td>
+        <% end %>
+      </tr>
+      </table>
+    <% end %>
+
+  <% if @past_speaker_bookings.any? %>
+    <h2 class="py-3">Mes interventions passées</h2>
+    <table class="table">
+      <tr>
+        <th>Date</th>
+        <th>Titre</th>
+        <th>Client</th>
+        <th>Rating</th>
+        <th>Commentaire</th>
+      </tr>
+
+      <tr>
+        <% @past_speaker_bookings.each do |booking| %>
+          <td><%= booking.date %></td>
+          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.user.first_name.capitalize %>
+              <%=booking.user.last_name.upcase%></td>
+          <td><%= booking.rating %></td>
+          <td>
+            <% if booking.review %>
+              <%= booking.review %>
+            <% else %>
+              <%= booking.user.first_name.capitalize %>
+              <%= "n'a pas laissé de commentaire" %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+
+  <% if @user.speaker_offerings.empty? %>
+    <%= link_to "Ajouter une offre", new_speaker_offering_path, class: "btn btn-success" %>
+  <% end %>
+
 </div>
-
-<div>
-<%= @user.company_name %>
-<%= @user.company_info %>
-</div>
-
-<!-- For organizer -->
-<% if @upcoming_bookings.any? %>
-  <h2>Mes réservations à venir</h2>
-    <table>
-    <tr>
-      <th>Date</th>
-      <th>Titre</th>
-      <th>Intervenant</th>
-    </tr>
-
-    <tr>
-      <% @upcoming_bookings.each do |booking| %>
-        <td><%= booking.date %></td>
-        <td><%= booking.speaker_offering.title %><td>
-        <td><%= booking.speaker_offering.user.first_name.capitalize %>
-            <%= booking.speaker_offering.user.last_name.upcase %>
-        </td>
-      <% end %>
-    </tr>
-  </table>
-<% end %>
-
-<% if @past_bookings.any? %>
-  <h2>Mes réservations passées</h2>
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Titre</th>
-      <th>Intervenant</th>
-      <th>Rating</th>
-      <th>Commentaire</th>
-    </tr>
-
-    <tr>
-      <% @past_bookings.each do |booking| %>
-        <td><%= booking.date %></td>
-        <td><%= booking.speaker_offering.title %><td>
-        <td><%= booking.speaker_offering.user.first_name.capitalize %>
-            <%= booking.speaker_offering.user.last_name.upcase %>
-        </td>
-        <td><%= booking.rating %></td>
-        <td>
-          <% if booking.review %>
-            <%= booking.review %>
-          <% else %>
-            <%= link_to 'Laisser un commentaire', '#', class:'btn btn-primary' %>
-          <% end %>
-        </td>
-      <% end %>
-    </tr>
-  </table>
-<% end %>
-
-<!-- For speaker -->
-<% if @upcoming_speaker_bookings.any? %>
-  <h2>Mes interventions à venir</h2>
-    <table>
-    <tr>
-      <th>Date</th>
-      <th>Titre</th>
-      <th>Client</th>
-    </tr>
-
-    <tr>
-      <% @upcoming_speaker_bookings.each do |booking| %>
-        <td><%= booking.date %></td>
-        <td><%= booking.speaker_offering.title %><td>
-        <td><%= booking.user.first_name.capitalize %>
-            <%= booking.user.last_name.upcase %>
-        </td>
-      <% end %>
-    </tr>
-  </table><% end %>
-
-<% if @past_speaker_bookings.any? %>
-  <h2>Mes interventions passées</h2>
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Titre</th>
-      <th>Client</th>
-      <th>Rating</th>
-      <th>Commentaire</th>
-    </tr>
-
-    <tr>
-      <% @past_speaker_bookings.each do |booking| %>
-        <td><%= booking.date %></td>
-        <td><%= booking.speaker_offering.title %><td>
-        <td><%= booking.user.first_name.capitalize %>
-            <%= booking.user.last_name.upcase %>
-        </td>
-        <td><%= booking.rating %></td>
-        <td>
-          <% if booking.review %>
-            <%= booking.review %>
-          <% else %>
-            <%= booking.user.first_name.capitalize %>
-          <% end %>
-        </td>
-      <% end %>
-    </tr>
-  </table>
-<% end %>
