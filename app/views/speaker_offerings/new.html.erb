@@ -1,11 +1,11 @@
 <div class = "container">
-  <h1>Créer une nouvelle prestation</h1>
+  <h1>Créer une nouvelle offre</h1>
   <%= simple_form_for(@offering) do |f| %>
-    <%= f.input :title, placeholder: "Titre de votre prestation"%>
-    <%= f.input :topic, placeholder: "Mon sujet de prédilection" %>
-    <%= f.input :localisation, placeholder: "Ma ville d'intervention" %>
-    <%= f.input :budget, placeholder: "Tarif"%>
-    <%= f.submit 'Enregistrer ma prestation', class:'btn btn-primary' %>
+    <%= f.input :title, :label => "Titre", placeholder: "Titre de votre prestation"%>
+    <%= f.input :topic,:label => "Sujet", placeholder: "Mon sujet de prédilection" %>
+    <%= f.input :localisation, :label => "Ville", placeholder: "Ma ville d'intervention" %>
+    <%= f.input :budget, :label => "Tarif", placeholder: "Tarif"%>
+    <%= f.submit 'Enregistrer mon offre', class:'btn btn-success' %>
   <% end %>
 </div>
 

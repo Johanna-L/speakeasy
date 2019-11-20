@@ -1,10 +1,26 @@
-<h1><%= @offering.title %></h1>
-<ul>
-  <li>Sujet de prédilection : <%= @offering.topic %></li>
-  <li>Localisation : <%= @offering.localisation %></li>
-  <li>Budget : <%= @offering.budget%></li>
-  <li>Nom : <%= @offering.user.first_name %> <%= @offering.user.last_name %></li>
-</ul>
+<div class="container">
+  <div class="d-flex justify-content-between py-5">
+    <div>
+      <h2 class="mb-3"><%= @offering.title.capitalize %></h2>
+        <table class="table">
+        <tr>
+          <th>Nom</th>
+          <th>Sujet de prédilection</th>
+          <th>Localisation</th>
+          <th>Budget</th>
+        </tr>
 
-<%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success"%>
+        <tr>
+          <td><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.upcase %></td>
+          <td><%= @offering.topic.capitalize %></td>
+          <td><%= @offering.localisation.capitalize %></td>
+          <td><p><%= @offering.budget %> €</p></td>
+          </tr>
+        </table>
+
+      <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-100"%>
+    </div>
+      <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
+  </div>
+</div>
 
