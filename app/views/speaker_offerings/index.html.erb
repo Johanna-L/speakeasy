@@ -1,10 +1,22 @@
-<h1>Offering list</h1>
+<h1>Nos speakers disponibles</h1>
 
-<% @offerings.each do |offering| %>
-<ul>
-  <li><%= link_to offering.title, speaker_offering_path(offering) %></li>
-  <li>Topic :<%= offering.topic %></li>
-  <li><%= offering.localisation %></li>
-  <li><%= offering.budget %></li>
-</ul>
-<% end %>
+<div class="main-container">
+
+  <div class="card-container">
+    <!-- <div> -->
+      <ul>
+        <% @offerings.each do |offering| %>
+          <li class="mycard">
+            <div class="card-infos">
+              <h4><%= offering.title %></h4>
+              <p>Sujet : <%= offering.topic %></p>
+              <p>Ville : <%= offering.localisation %></p>
+              <p>Tarifs : <%= offering.budget %></p>
+            </div>
+            <%= link_to 'details', speaker_offering_path(offering) %>
+          </li>
+        <% end %>
+      </ul>
+    <!-- </div> -->
+  </div>
+</div>
