@@ -103,6 +103,7 @@ fred.save!
 
 
 # Speaker Offering
+# Obama
 puts "Creating a speaker_offering"
 conf_obama = SpeakerOffering.new(
   title: "Obamacare - Une révolution?",
@@ -112,6 +113,46 @@ conf_obama = SpeakerOffering.new(
   )
 conf_obama.user = barack
 conf_obama.save!
+
+# Nabilla
+conf_nabilla = SpeakerOffering.new(
+  title: "Le shampoing - Un élément indispensable de notre quotidien?",
+  topic: "Beauté",
+  budget: 2000,
+  localisation: "Paris"
+  )
+conf_nabilla.user = nabila
+conf_nabilla.save!
+
+# Patrick
+conf_patrick = SpeakerOffering.new(
+  title: "L'animation dans tous ses états",
+  topic: "Animation",
+  budget: 2000,
+  localisation: "Paris"
+  )
+conf_patrick.user = patrick
+conf_patrick.save!
+
+# Emma Watson
+conf_emma = SpeakerOffering.new(
+  title: "Être une femme artiste & engagée",
+  topic: "Femmes",
+  budget: 500000,
+  localisation: "New York"
+  )
+conf_emma.user = emma
+conf_emma.save!
+
+# Balkany
+conf_balkany = SpeakerOffering.new(
+  title: "La fraude fiscale pour les nuls",
+  topic: "Fiscalité",
+  budget: 500000,
+  localisation: "Du parloir de la prison"
+  )
+conf_balkany.user = balkany
+conf_balkany.save!
 
 # Booking
 puts "Creating a booking"
