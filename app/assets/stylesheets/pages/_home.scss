@@ -1,1 +1,45 @@
 // Specific CSS for your home-page
+
+.carousel img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+  margin: 0 auto
+}
+
+
+.picto {
+  height: 250px;
+  background-color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.picto img {
+  max-width: 250px;
+}
+
+.picto img.img-marketplace {
+  max-width: 159px;
+  max-height: 159px;
+  margin: auto;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+    text-align: center;
+    padding-bottom: 2;
+}
