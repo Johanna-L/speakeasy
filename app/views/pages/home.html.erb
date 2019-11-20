@@ -49,4 +49,39 @@
   <div class="justify-content-center d-flex">
     <%= link_to 'Découvrez nos offres', speaker_offerings_path, class: "btn btn-flat mt-2 w-75"%>
   </div>
+ <div class="justify-content-center d-flex mt-2">
+    <h2>Comment ça marche</h2>
+  </div>
+<div class="card-deck mt-2 mb-3 pb-3">
+  <div class="card" >
+    <div class="picto">
+      <%= image_tag "conference", alt: "conference organizer" %>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">Organisateur d'évènement</h5>
+      <p class="card-text">Vous êtes à la recherche d'un intervenant pour votre évènement.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="picto">
+      <%= image_tag "marketplace", alt: "Spikizy marketplace", class:"img-marketplace" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Spikizy</h5>
+      <p class="card-text">La solution pour dynamiser votre évènement avec un contenu original.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="picto">
+    <%= image_tag "speaker", alt: "Speaker" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Speaker</h5>
+      <p class="card-text">Vous maitrisez un sujet et souhaitez le partager. Vous êtes conférencier.</p>
+    </div>
+  </div>
+</div>
+
+
 </div>
