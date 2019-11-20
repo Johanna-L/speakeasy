@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Réservez une intervention</h1>
   <%= simple_form_for ([ @speaker_offering, @booking ]) do |f| %>
-    <%= f.input :event_type, placeholder: "Quel serait le sujet de votre évènement ?" %>
-    <%= f.input :date, placeholder: "Quand aura t'il lieu ? dd-mm-yyyy" %>
-    <%= f.input :location, placeholder: "Dans quelle ville ?" %>
+    <%= f.input :event_type, placeholder: "Quel serait le sujet de votre événement?" %>
+    <%= f.input :date, placeholder: "Quand aura t'il lieu? dd-mm-yyyy" %>
+    <%= f.input :location, placeholder: "Dans quelle ville?" %>
     <%= f.submit 'Valider', class:'btn btn-primary' %>
   <% end %>
 </div>
