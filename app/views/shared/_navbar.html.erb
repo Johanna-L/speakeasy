@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Voir nos offres", speaker_offerings_path, class: "btn btn-primary" %>
+        <%= link_to "Voir nos offres", speaker_offerings_path, class: "btn btn-success" %>
       </li>
 
 <!--       <% if user_signed_in? %>
@@ -31,7 +31,7 @@
 
       <li class="nav-item dropdown">
         <% if user_signed_in? && current_user.photo %>
-          <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag current_user.photo, class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
           <%= image_tag "user.png", alt: "blank-avatar", class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
