@@ -1,5 +1,7 @@
 # Clear seed
 puts "Destroying existing users"
+Booking.destroy_all
+SpeakerOffering.destroy_all
 User.destroy_all
 
 # Speakers
@@ -98,3 +100,23 @@ fred = User.new({
 })
 
 fred.save!
+
+
+# Speaker Offering
+puts "Creating a speaker_offering"
+conf_obama = SpeakerOffering.new(
+  title: "Obamacare - Une révolution?",
+  topic: "politique",
+  budget: 500000,
+  localisation: "Washington"
+  )
+conf_obama.user = barack
+conf_obama.save!
+
+# Booking
+puts "Creating a booking"
+booking_obama = Booking.new(
+  date: DateTime.new(2019, 3, 23))
+booking_obama.user = fred
+booking_obama.speaker_offering = conf_obama
+booking_obama.save!

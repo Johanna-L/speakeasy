@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Titre</th>
+    <th>Client</th>
+  </tr>
+
+  <tr>
+    <% bookings.each do |booking| %>
+      <td><%= booking.date %></td>
+      <td><%= booking.speaker_offering.title %><td>
+      <td><%= booking.speaker_offering.user.first_name.capitalize %>
+          <%= booking.speaker_offering.user.last_name.upcase %>
+      </td>
+    <% end %>
+  </tr>
+</table>
