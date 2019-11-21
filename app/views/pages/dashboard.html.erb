@@ -35,7 +35,7 @@
       <% @upcoming_bookings.each do |booking| %>
         <tr>
           <td><%= booking.date.strftime('%d/%m/%Y') %></td>
-          <td><%= booking.speaker_offering.description %></td>
+          <td><%= booking.speaker_offering.topic.capitalize %></td>
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
@@ -55,10 +55,10 @@
         <th>Commentaire</th>
       </tr>
 
-      <tr>
-        <% @past_bookings.each do |booking| %>
+      <% @past_bookings.each do |booking| %>
+        <tr>
           <td><%= booking.date.strftime('%d/%m/%Y') %></td>
-          <td><%= booking.speaker_offering.description %></td>
+          <td><%= booking.speaker_offering.topic.capitalize %></td>
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
@@ -70,8 +70,8 @@
               <%= link_to 'Evaluer la prestation', '#', class:'btn btn-success' %>
             <% end %>
           </td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </table>
   <% end %>
 
@@ -85,15 +85,15 @@
         <th>Client</th>
       </tr>
 
-      <tr>
-        <% @upcoming_speaker_bookings.each do |booking| %>
+      <% @upcoming_speaker_bookings.each do |booking| %>
+        <tr>
           <td><%= booking.date %></td>
-          <td><%= booking.speaker_offering.description %></td>
+          <td><%= booking.speaker_offering.topic.capitalize %></td>
           <td><%= booking.user.first_name.capitalize %>
               <%= booking.user.last_name.upcase %>
           </td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
       </table>
     <% end %>
 
@@ -108,10 +108,10 @@
         <th>Commentaire</th>
       </tr>
 
-      <tr>
-        <% @past_speaker_bookings.each do |booking| %>
+      <% @past_speaker_bookings.each do |booking| %>
+        <tr>
           <td><%= booking.date %></td>
-          <td><%= booking.speaker_offering.description %></td>
+          <td><%= booking.speaker_offering.topic.capitalize %></td>
           <td><%= booking.user.first_name.capitalize %>
               <%=booking.user.last_name.upcase%></td>
           <td><%= booking.rating %></td>
@@ -123,8 +123,8 @@
               <%= "n'a pas laissé de commentaire" %>
             <% end %>
           </td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </table>
   <% end %>
 
