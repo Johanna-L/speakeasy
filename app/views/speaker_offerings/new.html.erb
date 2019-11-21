@@ -1,7 +1,6 @@
 <div class = "container">
   <h1>Créer une nouvelle offre</h1>
   <%= simple_form_for(@offering) do |f| %>
-    <%= f.input :title, :label => "Titre", placeholder: "Titre de votre prestation"%>
     <%= f.input :topic,:label => "Sujet", placeholder: "Mon sujet de prédilection" %>
     <%= f.input :localisation, :label => "Ville", placeholder: "Ma ville d'intervention" %>
     <%= f.input :budget, :label => "Tarif", placeholder: "Tarif"%>

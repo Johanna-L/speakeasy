@@ -1,20 +1,21 @@
-<h1>Nos speakers disponibles</h1>
+<h1 id="h1-offers">Speakers disponibles :</h1>
 
 <div class="main-container">
-
   <div class="card-container">
     <!-- <div> -->
       <ul>
         <% @offerings.each do |offering| %>
+          <%= link_to speaker_offering_path(offering) do %>
           <li class="mycard">
             <div class="card-infos">
-              <h4><%= offering.title %></h4>
-              <p>Sujet : <%= offering.topic %></p>
-              <p>Ville : <%= offering.localisation %></p>
-              <p>Tarifs : <%= offering.budget %></p>
+              <h4><%= offering.user.first_name %> <%= offering.user.last_name %></h4>
+              <p>Thème : <%= offering.topic %></p>
+              <p><em><%= offering.localisation %></em></p>
+              <p><%= offering.budget %> €</p>
             </div>
-            <%= link_to 'details', speaker_offering_path(offering) %>
+            <%= image_tag offering.user.photo, class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </li>
+          <% end %>
         <% end %>
       </ul>
     <!-- </div> -->

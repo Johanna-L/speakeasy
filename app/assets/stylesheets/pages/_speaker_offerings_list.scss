@@ -1,21 +1,20 @@
 .main-container {
-  margin: 0 auto;
+  margin: 0 40px;
   display: flex;
 }
 
 .mycard {
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   height: 150px;
-  border-radius: 1px;
+  border-radius: 96px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  font-size: 22px;
+  justify-content: center;
   font-weight: bolder;
-  margin: inherit;
+  margin-bottom: 16px;
   background-color: white;
+  break-inside: avoid-column;
   h4 {
     color: black;
     font-size: 16px;
@@ -30,24 +29,45 @@
     margin-top: 8px;
     color: black;
   }
+  img {
+    width: 100px;
+  }
+}
+
+.mycard:hover {
+  transform: translate3D(0,-1px,0) scale(1.03);
+  text-decoration: none;
 }
 
 .card-container {
+  padding: none;
   // display: grid;
   // grid-template-columns: 1fr 1fr;
   // grid-gap: 16px;
-  margin-top: 16px;
-  margin-left: 16px;
-  margin-bottom: 16px;
+  margin: 16px;
+  // margin-top: 16px;
+  // margin-left: 16px;
+  // margin-bottom: 16px;
   flex-grow: 1;
   ul {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
+    padding-inline-start: 0px;
+    margin-bottom: none;
   }
   li {
     break-inside: avoid-column;
   }
+}
+
+.card-infos {
+  padding: 16px;
+}
+
+#h1-offers {
+  margin-left: 24px;
+  font-family: 'Permanent Marker';
 }
 
 @media(max-width: 992px) {
@@ -55,4 +75,3 @@
   //   grid-template-columns: 1fr 1fr;
   // }
 }
-
