@@ -48,3 +48,9 @@
 .justify-content-center h2{
   font-family: 'Permanent Marker';
 }
+
+// image en fond
+.bg-crowd {
+  background-image: url('crowd.jpg'), linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.5) 70%);;
+  background-size: cover;
+}

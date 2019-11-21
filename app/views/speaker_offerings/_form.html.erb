@@ -1,7 +1,22 @@
 <%= simple_form_for(@offering) do |f| %>
-  <%= f.input :topic,:label => "Thème", placeholder: "Mon sujet de prédilection" %>
-  <%= f.input :localisation, :label => "Ville", placeholder: "Ma ville d'intervention" %>
-  <%= f.input :budget, :label => "Tarif", placeholder: "Tarif"%>
-  <%= f.input :description, :label => "Description", placeholder: "Description détaillée de vos domaines d'expertise"%>
-  <%= f.submit 'Enregistrer mon annonce', class:'btn btn-success' %>
+<div class="row">
+  <div class="col-5">
+    <%= f.input :topic,:label => "Thème", placeholder: "Mon sujet de prédilection" %>
+  </div>
+  <div class="col-5">
+    <%= f.input :localisation, :label => "Ville", placeholder: "Ma ville d'intervention" %>
+  </div>
+  <div class="col-2">
+    <%= f.input :budget, :label => "Tarif", placeholder: "Tarif"%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5">
+  <%= f.input :description, :label => "Description", placeholder: "Description détaillée de vos domaines d'expertise" %>
+  <%= f.submit 'Enregistrer mon annonce', class:'btn btn-success w-100' %>
+  </div>
+  <div class="col-5">
+  <%= image_tag "crowd.jpg", alt: "audience", style:"max-height: 445px; object-fit: cover; margin-top: 32px" %>
+  </div>
+</div>
 <% end %>
