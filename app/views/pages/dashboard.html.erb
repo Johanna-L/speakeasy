@@ -32,15 +32,15 @@
         <th>Intervenant</th>
       </tr>
 
-      <tr>
-        <% @upcoming_bookings.each do |booking| %>
+      <% @upcoming_bookings.each do |booking| %>
+        <tr>
           <td><%= booking.date.strftime('%d/%m/%Y') %></td>
           <td><%= booking.speaker_offering.title %></td>
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </table>
   <% end %>
 
