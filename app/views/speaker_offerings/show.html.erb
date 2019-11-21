@@ -25,7 +25,10 @@
     </div>
       <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
   </div>
-  <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
-  <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
+
+  <% if  user_signed_in? && @offering.user == current_user %>
+    <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
+    <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
+  <% end %>
 </div>
 
