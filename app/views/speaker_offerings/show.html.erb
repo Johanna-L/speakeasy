@@ -21,8 +21,11 @@
       </ul>
     </div>
   </div>
-  <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
-  <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
+
+  <% if  user_signed_in? && @offering.user == current_user %>
+    <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
+    <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
+  <% end %>
 </div>
      <!--  <% unless current_user == @offering.user %>
         <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-50"%>
