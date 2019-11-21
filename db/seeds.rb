@@ -114,7 +114,7 @@ didier = User.new({
 didier.save!
 
 brad = User.new({
-  first_name: "brad",
+  first_name: "Brad",
   last_name: "Gushue",
   email: "brad@gmail.com",
   password: "123456",
