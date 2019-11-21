@@ -1,17 +1,9 @@
 class SpeakerOfferingsController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = " \
-        speaker_offerings.topics ILIKE :query \
-        OR speaker_offerings.localisation ILIKE :query \
-        OR users.first_name ILIKE :query \
-        OR users.last_name ILIKE :query \
-        OR users.background ILIKE :query \
-        OR users.social_media ILIKE :query \
-      "
-      @offerings = SpeakerOffering.where(@offerings = SpeakerOffering.joins(:user).where(sql_query, query: "%#{params[:query]}%"))
+      @offerings = SpeakerOffering.global_search(params[:query])
     else
-      @offerings = SpeakerOffering.all@movies = Movie.all
+      @offerings = SpeakerOffering.all
     end
   end
 

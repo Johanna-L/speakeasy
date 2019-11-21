@@ -5,12 +5,12 @@ class SpeakerOffering < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :topics, :localisation ],
+    against: [ :topic, :localisation ],
     associated_against: {
-      user: [ :first_name, :last_name, :background, :social_media ]
+      user: [ :first_name, :last_name ]
     },
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 end
 
