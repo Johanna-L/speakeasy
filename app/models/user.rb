@@ -10,7 +10,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include PgSearch::Model
+
   def offer_bookings
     Booking.where(speaker_offering: speaker_offerings)
   end
+
 end
