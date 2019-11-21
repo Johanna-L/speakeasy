@@ -1,19 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "tribune2.png" %>
-  <% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row">
 
-  <h3 class='text-left'>Spikizy</h3>
+  <div class="icon-left">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "tribune2.png" %>
+  <% end %>
+  </div>
+
+
+  <div>
+    <h1 class='text-left'>Spikizy</h1>
+  </div>
+
+
+
+<div class="d-flex">
+  <div class='search-bar'>
+    <%= form_tag speaker_offerings_path, method: :get, class: 'form-inline mr-0 my-lg-0' do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control mr-sm-0",
+        placeholder: "search offerings"
+      %>
+      <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Voir nos offres", speaker_offerings_path, class: "btn btn-success" %>
+        <%= link_to "Nos offres", speaker_offerings_path, class: "btn btn-success" %>
       </li>
 
 <!--       <% if user_signed_in? %>
@@ -48,4 +68,6 @@
       </li>
     </ul>
   </div>
+  </div>
+
 </div>

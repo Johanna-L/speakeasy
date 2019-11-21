@@ -1,6 +1,7 @@
-<h1 id="h1-offers">Speakers disponibles :</h1>
+
 
 <div class="main-container">
+
   <% @offerings.each do |offering| %>
   <%= link_to speaker_offering_path(offering) do %>
     <div class="card mycard" style="width: 18rem;">
