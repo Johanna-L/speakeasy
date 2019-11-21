@@ -28,7 +28,7 @@ nabila = User.new({
   password_confirmation: "nabilla",
   photo: "nabila.jpg",
   social_media: "https://twitter.com/Nabilla",
-  background: "Tu me connais pas? Allô quoi!"
+  background: "Tu ne me connais pas? Nan mais Allô quoi!"
 })
 
 nabila.save!
@@ -125,6 +125,32 @@ brad = User.new({
 })
 
 didier.save!
+
+rocco = User.new({
+  first_name: "Rocco",
+  last_name: "Siffredi",
+  email: "rocco@gmail.com",
+  password: "rocco123",
+  password_confirmation: "rocco123",
+  photo: "rocco.jpg",
+  social_media: "https://twitter.com/Nabilla",
+  background: "Spécialiste en équitation"
+})
+
+rocco.save!
+
+casimir = User.new({
+  first_name: "Casimir",
+  last_name: "Gloubi Boulga",
+  email: "casimir@gmail.com",
+  password: "casimir",
+  password_confirmation: "casimir",
+  photo: "casimir.jpg",
+  social_media: "https://twitter.com/Nabilla",
+  background: "L'ami des enfants"
+})
+
+casimir.save!
 
 
 # Organizers
@@ -249,6 +275,27 @@ conf_brad = SpeakerOffering.new(
   )
 conf_brad.user = brad
 conf_brad.save!
+
+# Rocco
+conf_rocco = SpeakerOffering.new(
+  description: "Célèbre dans le milieu de l'équitation. Seul étalon, je peux gérer 2, voire 3 juments à la fois.",
+  topic: "Sport equestre",
+  budget: 3000,
+  localisation: "Rome"
+  )
+conf_rocco.user = rocco
+conf_rocco.save!
+
+# Casimir
+conf_casimir = SpeakerOffering.new(
+  description: "Ami des enfants, je peux également épater les grands.",
+  topic: "Dessin animé",
+  budget: 1,
+  localisation: "Monde Magique"
+  )
+conf_casimir.user = casimir
+conf_casimir.save!
+
 # Booking
 puts "Creating a booking"
 booking_obama = Booking.new(
