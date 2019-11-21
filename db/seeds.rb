@@ -106,7 +106,7 @@ fred.save!
 # Obama
 puts "Creating a speaker_offering"
 conf_obama = SpeakerOffering.new(
-  title: "Obamacare - Une révolution?",
+  description: "Obamacare - Une révolution?",
   topic: "politique",
   budget: 500000,
   localisation: "Washington"
@@ -116,7 +116,7 @@ conf_obama.save!
 
 # Nabilla
 conf_nabilla = SpeakerOffering.new(
-  title: "Le shampoing - Un élément indispensable de notre quotidien?",
+  description: "Le shampoing - Un élément indispensable de notre quotidien?",
   topic: "Beauté",
   budget: 2000,
   localisation: "Paris"
@@ -126,7 +126,7 @@ conf_nabilla.save!
 
 # Patrick
 conf_patrick = SpeakerOffering.new(
-  title: "L'animation dans tous ses états",
+  description: "L'animation dans tous ses états",
   topic: "Animation",
   budget: 2000,
   localisation: "Paris"
@@ -136,7 +136,7 @@ conf_patrick.save!
 
 # Emma Watson
 conf_emma = SpeakerOffering.new(
-  title: "Être une femme artiste & engagée",
+  description: "Être une femme artiste & engagée",
   topic: "Femmes",
   budget: 500000,
   localisation: "New York"
@@ -146,7 +146,7 @@ conf_emma.save!
 
 # Balkany
 conf_balkany = SpeakerOffering.new(
-  title: "La fraude fiscale pour les nuls",
+  description: "La fraude fiscale pour les nuls",
   topic: "Fiscalité",
   budget: 500000,
   localisation: "Du parloir de la prison"
