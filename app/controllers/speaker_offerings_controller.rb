@@ -24,6 +24,6 @@ class SpeakerOfferingsController < ApplicationController
   private
 
   def offering_params
-    params.require(:speaker_offering).permit(:title, :topic, :localisation, :budget)
+    params.require(:speaker_offering).permit(:topic, :localisation, :budget, :description)
   end
 end

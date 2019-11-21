@@ -35,7 +35,7 @@
       <tr>
         <% @upcoming_bookings.each do |booking| %>
           <td><%= booking.date.strftime('%d/%m/%Y') %></td>
-          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.description %></td>
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
@@ -58,7 +58,7 @@
       <tr>
         <% @past_bookings.each do |booking| %>
           <td><%= booking.date.strftime('%d/%m/%Y') %></td>
-          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.description %></td>
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
@@ -88,7 +88,7 @@
       <tr>
         <% @upcoming_speaker_bookings.each do |booking| %>
           <td><%= booking.date %></td>
-          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.description %></td>
           <td><%= booking.user.first_name.capitalize %>
               <%= booking.user.last_name.upcase %>
           </td>
@@ -111,7 +111,7 @@
       <tr>
         <% @past_speaker_bookings.each do |booking| %>
           <td><%= booking.date %></td>
-          <td><%= booking.speaker_offering.title %></td>
+          <td><%= booking.speaker_offering.description %></td>
           <td><%= booking.user.first_name.capitalize %>
               <%=booking.user.last_name.upcase%></td>
           <td><%= booking.rating %></td>
