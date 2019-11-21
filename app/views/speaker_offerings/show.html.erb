@@ -1,29 +1,29 @@
 <div class="container">
-  <div class="d-flex justify-content-between py-5">
-    <div>
-      <h2 class="mb-3"><%= @offering.user.first_name.capitalize %></h2>
-        <table class="table">
-        <tr>
-          <th>Nom</th>
-          <th>Sujet de prédilection</th>
-          <th>Localisation</th>
-          <th>Description</th>
-        </tr>
+  <div class="d-flex justify-content-between align-items flex-start">
+    <div class="title-offering">
+      <h2 class="mb-3" style="color :#58ad87">Prestation proposée par <%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h2>
 
-        <tr>
-          <td><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.upcase %></td>
-          <td><%= @offering.topic.capitalize %></td>
-          <td><%= @offering.localisation.capitalize %></td>
-          <td><%= @offering.description %></td>
-          <td><p><%= @offering.budget %> €</p></td>
-          </tr>
-        </table>
 
-      <% unless current_user == @offering.user %>
-        <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-100"%>
-      <% end %>
+        <div class="card-container">
+          <li class="card w-75">
+            <div class="card-infos d-flex align-items">
+              <div class ="text">
+              <!-- <h4><%= @offering.user.first_name %> <%= @offering.user.last_name %></h4> -->
+              <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic %></strong></p>
+              <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation %></p>
+              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description %></p>
+              <p><i class="fas fa-tags" style="color :#58ad87"></i> <%=  @offering.budget %> €</p>
+              </div>
+              <div class ="image_card">
+               <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
+            </div>
+          </li>
+      </ul>
     </div>
-      <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
   </div>
 </div>
+     <!--  <% unless current_user == @offering.user %>
+        <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-50"%>
+      <% end %> -->
+
 
