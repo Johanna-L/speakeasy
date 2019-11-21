@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Qu'avez-vous pensé de l'intervention de
+    <%= @booking.speaker_offering.user.first_name.capitalize %>
+    <%= @booking.speaker_offering.user.last_name.upcase %>
+  ?
+  </h1>
+
+  <%= simple_form_for(@booking) do |f| %>
+  <div class="row">
+    <div class="col-9">
+      <%= f.input :review, placeholder: "Dîtes-nous tout"%>
+    </div>
+    <div class="col-3">
+      <%= f.input :rating %>
+    </div>
+      <%= f.submit 'Envoyer', class:'btn btn-success ml-3' %>
+  <% end %>
+  </div>
+</div>
