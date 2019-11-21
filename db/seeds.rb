@@ -20,22 +20,9 @@ barack = User.new({
 
 barack.save!
 
-laure = User.new({
-  first_name: "Laure",
-  last_name: "Manaudou",
-  email: "laure.manaudou@gmail.com",
-  password: "manaudou",
-  password_confirmation: "manaudou",
-  photo: "laure.jpg",
-  social_media: "https://twitter.com/manaudou?lang=fr",
-  background: "Championne olympique de natation"
-})
-
-laure.save!
-
 nabila = User.new({
   first_name: "Nabilla",
-  last_name: "Benattia-Vergara",
+  last_name: "Benattia",
   email: "nabilla@gmail.com",
   password: "nabilla",
   password_confirmation: "nabilla",
@@ -85,6 +72,61 @@ patrick = User.new({
 
 patrick.save!
 
+#speakers sportifs
+
+laure = User.new({
+  first_name: "Laure",
+  last_name: "Manaudou",
+  email: "laure.manaudou@gmail.com",
+  password: "manaudou",
+  password_confirmation: "manaudou",
+  photo: "laure.jpg",
+  social_media: "https://twitter.com/manaudou?lang=fr",
+  background: "Championne olympique de natation"
+})
+
+laure.save!
+
+yannick = User.new({
+  first_name: "Yannick",
+  last_name: "Noah",
+  email: "yannick@gmail.com",
+  password: "noah12",
+  password_confirmation: "noah12",
+  photo: "yannick.png",
+  social_media: "https://www.yannicknoah.com/",
+  background: "Tennisman"
+})
+
+yannick.save!
+
+didier = User.new({
+  first_name: "Didier",
+  last_name: "Deschamps",
+  email: "didier@gmail.com",
+  password: "deschamps",
+  password_confirmation: "deschamps",
+  photo: "Didier.png",
+  social_media: "https://www.lequipe.fr/Football/FootballFicheJoueur4116.html",
+  background: "Footballer & entraîneur"
+})
+
+didier.save!
+
+brad = User.new({
+  first_name: "brad",
+  last_name: "Gushue",
+  email: "brad@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  photo: "Brad.png",
+  social_media: "https://twitter.com/bradgushue",
+  background: "Footballer & entraîneur"
+})
+
+didier.save!
+
+
 # Organizers
 puts "Initializing organizers"
 
@@ -101,13 +143,26 @@ fred = User.new({
 
 fred.save!
 
+# Yann Barthès
+yannb = User.new({
+  first_name: "Yann",
+  last_name: "Barthès",
+  email: "yann.barthes@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  photo: "yannb.png",
+  company_name: "TMC",
+  company_info: "Alimenter le contenu de mes émisions Quotidien"
+})
+
+yannb.save!
 
 # Speaker Offering
 # Obama
 puts "Creating a speaker_offering"
 conf_obama = SpeakerOffering.new(
-  description: "Obamacare - Une révolution?",
-  topic: "politique",
+  description: "Ayant présidé deux mandats aux USA, je suis à l'aise pour échanger avec vous sur tous sujets politiques et pour partager mon expérience avec vous.",
+  topic: "Politique",
   budget: 500000,
   localisation: "Washington"
   )
@@ -116,7 +171,7 @@ conf_obama.save!
 
 # Nabilla
 conf_nabilla = SpeakerOffering.new(
-  description: "Le shampoing - Un élément indispensable de notre quotidien?",
+  description: "Célèbre pour mon apparition dans le monde de la téléréalité, le shampoing n'a pas de secret pour moi. C'est un élément indispensable de notre quotidien, je saurais vous le prouvez",
   topic: "Beauté",
   budget: 2000,
   localisation: "Paris"
@@ -126,7 +181,7 @@ conf_nabilla.save!
 
 # Patrick
 conf_patrick = SpeakerOffering.new(
-  description: "L'animation dans tous ses états",
+  description: "Ayant eu l'honneur de présenter de nombreux spectacles tout au long de ma carrière TV, mais aussi avec mes attraits pour la musique, je serais ravi d'échanger avec vous sur ces sujets",
   topic: "Animation",
   budget: 2000,
   localisation: "Paris"
@@ -136,8 +191,8 @@ conf_patrick.save!
 
 # Emma Watson
 conf_emma = SpeakerOffering.new(
-  description: "Être une femme artiste & engagée",
-  topic: "Femmes",
+  description: "Être une femme artiste & engagée, ce n'est pas facile mais je tente de m'imposer dans ce monde. Je me bats pour nos droits en tant que femme, et d'autres ONG.",
+  topic: "Femme",
   budget: 500000,
   localisation: "New York"
   )
@@ -146,14 +201,54 @@ conf_emma.save!
 
 # Balkany
 conf_balkany = SpeakerOffering.new(
-  description: "La fraude fiscale pour les nuls",
+  description: "La fraude fiscale a été pour moi une passion de vie. Etant devenu expert dans ce domaine, je saurais vous donner les clés nécessaires pour frauder.",
   topic: "Fiscalité",
   budget: 500000,
-  localisation: "Du parloir de la prison"
+  localisation: "Maubeuge"
   )
 conf_balkany.user = balkany
 conf_balkany.save!
 
+# les sportifs
+# Laure Manaudou
+conf_laure = SpeakerOffering.new(
+  description: "La natation est une passion familiale, que je connais que trop bien. Je serais ravie de parler de perséverance, motivation et accomplissement en votre compagnie.",
+  topic: "Sport",
+  budget: 5000,
+  localisation: "Paris"
+  )
+conf_laure.user = laure
+conf_laure.save!
+
+# Yannick
+conf_yannick = SpeakerOffering.new(
+  description: "Le tennis a toujours été un sport qui me tennait à coeur. Plus qu'un sport, c'est une culture, un rythme, une vocation.",
+  topic: "Sport",
+  budget: 5000,
+  localisation: "Paris"
+  )
+conf_yannick.user = yannick
+conf_yannick.save!
+
+# Didier Deschamps
+conf_didier = SpeakerOffering.new(
+  description: "Le foot est toute ma vie. D'abord en tant que joueur à ma belle époque, j'ai été champion du monde pour la France à la fois en tant que footballer et coach de l'équipe. C'est une double fierté, et surtout de la perséverance, de la cohésion d'équipe & de la motivation à toute épreuve. Grâce à ma carrière sportive, je pourrais échanger avec vous sur mon sport en particulier mais aussi parler des compétences nécessaires pour un sportif de haut niveau.",
+  topic: "Sport",
+  budget: 15000,
+  localisation: "Paris"
+  )
+conf_didier.user = didier
+conf_didier.save!
+
+# Brad Gushue
+conf_brad = SpeakerOffering.new(
+  description: "Le curling, sport encore peu pratiqué en France, est une pratique sportive très minutieuse, qui demande concentration et résistance au froid. Je serais ravi de vous la partager et vous la faire découvrir davantage.",
+  topic: "Sport",
+  budget: 10000,
+  localisation: "Canada"
+  )
+conf_brad.user = brad
+conf_brad.save!
 # Booking
 puts "Creating a booking"
 booking_obama = Booking.new(
