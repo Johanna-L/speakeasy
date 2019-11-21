@@ -1,9 +1,38 @@
 .main-container {
-  margin: 0 40px;
+  margin: 20px 90px;
   display: flex;
+  flex-wrap:wrap;
 }
 
 .mycard {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 2px;
+    margin: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.main-container {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.mycardtest {
   overflow: hidden;
   height: 150px;
   border-radius: 96px;
@@ -66,12 +95,12 @@
 }
 
 #h1-offers {
-  margin-left: 24px;
+  margin-left: 102px;
   font-family: 'Permanent Marker';
 }
 
-@media(max-width: 992px) {
-  // .cards {
-  //   grid-template-columns: 1fr 1fr;
-  // }
-}
+// @media(max-width: 992px) {
+//   // .cards {
+//   //   grid-template-columns: 1fr 1fr;
+//   // }
+// }
