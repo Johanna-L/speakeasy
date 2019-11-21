@@ -141,6 +141,7 @@
   <% else %>
     <% @user.speaker_offerings.each do |offering| %>
       <%= link_to "Modifier mon offre", edit_speaker_offering_path(offering), class: "btn btn-success" %>
+      <%= link_to "Retirer mon offre", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
     <% end %>
   <% end %>
 
