@@ -1,24 +1,27 @@
 <div class="container">
   <div class="d-flex justify-content-between py-5">
     <div>
-      <h2 class="mb-3"><%= @offering.description.capitalize %></h2>
+      <h2 class="mb-3"><%= @offering.user.first_name.capitalize %></h2>
         <table class="table">
         <tr>
           <th>Nom</th>
           <th>Sujet de prédilection</th>
           <th>Localisation</th>
-          <th>Budget</th>
+          <th>Description</th>
         </tr>
 
         <tr>
           <td><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.upcase %></td>
           <td><%= @offering.topic.capitalize %></td>
           <td><%= @offering.localisation.capitalize %></td>
+          <td><%= @offering.description %></td>
           <td><p><%= @offering.budget %> €</p></td>
           </tr>
         </table>
 
-      <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-100"%>
+      <% unless current_user == @offering.user %>
+        <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-100"%>
+      <% end %>
     </div>
       <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
   </div>

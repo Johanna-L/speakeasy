@@ -1,6 +1,10 @@
 class SpeakerOfferingsController < ApplicationController
   def index
-    @offerings = SpeakerOffering.all
+    if params[:query].present?
+      @offerings = SpeakerOffering.global_search(params[:query])
+    else
+      @offerings = SpeakerOffering.all
+    end
   end
 
   def new
