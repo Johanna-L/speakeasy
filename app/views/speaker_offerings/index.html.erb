@@ -2,25 +2,20 @@
 
 <div class="main-container">
 
-
-
-  <div class="card-container">
-    <!-- <div> -->
-      <ul>
-        <% @offerings.each do |offering| %>
-          <%= link_to speaker_offering_path(offering) do %>
-          <li class="mycard">
-            <div class="card-infos">
-              <h4><%= offering.user.first_name %> <%= offering.user.last_name %></h4>
-              <p>Thème : <%= offering.topic %></p>
-              <p><em><%= offering.localisation %></em></p>
-              <p><%= offering.budget %> €</p>
-            </div>
-            <%= image_tag offering.user.photo, class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          </li>
-          <% end %>
-        <% end %>
+  <% @offerings.each do |offering| %>
+  <%= link_to speaker_offering_path(offering) do %>
+    <div class="card mycard" style="width: 18rem;">
+      <%= image_tag offering.user.photo, class: "card-img-top"%>
+      <div class="card-body">
+        <h5 class="card-title"><%= offering.user.first_name %> <%= offering.user.last_name %></h5>
+        <p class="card-text"><%= truncate(offering.description, length: 80, omission: '...') %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Thème : <%= offering.topic %></b></li>
+        <li class="list-group-item">Lieu: <%= offering.localisation %></li>
+        <li class="list-group-item">Prix: <%= offering.budget %> €</li>
       </ul>
-    <!-- </div> -->
-  </div>
+    </div>
+    <% end %>
+  <% end %>
 </div>
