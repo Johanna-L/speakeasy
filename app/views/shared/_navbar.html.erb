@@ -1,17 +1,24 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row">
 
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "tribune2.png" %>
+  <div class="icon-left">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "tribune2.png" %>
   <% end %>
-
-  <h3 class='text-left'>Spikizy</h3>
+  </div>
 
 
   <div>
-    <%= form_tag speaker_offerings_path, method: :get, class: 'form-inline my-2 my-lg-0 text: right' do %>
+    <h1 class='text-left'>Spikizy</h1>
+  </div>
+
+
+
+<div class="d-flex">
+  <div class='search-bar'>
+    <%= form_tag speaker_offerings_path, method: :get, class: 'form-inline mr-0 my-lg-0' do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control mr-sm-",
+        class: "form-control mr-sm-0",
         placeholder: "search offerings"
       %>
       <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
@@ -26,7 +33,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Voir nos offres", speaker_offerings_path, class: "btn btn-success" %>
+        <%= link_to "Nos offres", speaker_offerings_path, class: "btn btn-success" %>
       </li>
 
 <!--       <% if user_signed_in? %>
@@ -61,4 +68,6 @@
       </li>
     </ul>
   </div>
+  </div>
+
 </div>
