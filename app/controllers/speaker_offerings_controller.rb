@@ -1,6 +1,10 @@
 class SpeakerOfferingsController < ApplicationController
   def index
-    @offerings = SpeakerOffering.all
+    if params[:query].present?
+      @offerings = SpeakerOffering.global_search(params[:query])
+    else
+      @offerings = SpeakerOffering.all
+    end
   end
 
   def new
@@ -19,6 +23,26 @@ class SpeakerOfferingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @offering = SpeakerOffering.find(params[:id])
+    @offering.user = current_user
+  end
+
+  def update
+    @offering = SpeakerOffering.find(params[:id])
+    if @offering.update(offering_params)
+      redirect_to speaker_offering_path(@offering)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @offering = SpeakerOffering.find(params[:id])
+    @offering.destroy
+    redirect_to dashboard_path
   end
 
   private
