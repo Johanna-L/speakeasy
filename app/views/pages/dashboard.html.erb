@@ -62,14 +62,18 @@
           <td><%= booking.speaker_offering.user.first_name.capitalize %>
               <%= booking.speaker_offering.user.last_name.upcase %>
           </td>
-          <td><%= booking.rating %></td>
-          <td>
-            <% if booking.review %>
-              <%= booking.review %>
-            <% else %>
-              <%= link_to 'Evaluer la prestation', '#', class:'btn btn-success' %>
+          <% if booking.review.nil? %>
+            <%= simple_form_for(booking) do |f| %>
+              <td><%= f.input_field :rating, hint: '0 to 5' %></td>
+              <td>
+                <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
+                <%= f.submit "Evaluer", class:'btn btn-success' %>
+              </td>
             <% end %>
-          </td>
+          <% else %>
+            <td><%= booking.rating %></td>
+            <td><%= booking.review %></td>
+          <% end %>
         </tr>
       <% end %>
     </table>
@@ -137,11 +141,11 @@
   <% end %>
 
   <% if @user.speaker_offerings.empty? %>
-    <%= link_to "Ajouter une offre", new_speaker_offering_path, class: "btn btn-success" %>
+    <%= link_to "Créer mon annonce", new_speaker_offering_path, class: "btn btn-success" %>
   <% else %>
     <% @user.speaker_offerings.each do |offering| %>
-      <%= link_to "Modifier mon offre", edit_speaker_offering_path(offering), class: "btn btn-success" %>
-      <%= link_to "Retirer mon offre", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
+      <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>
+      <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
     <% end %>
   <% end %>
 
