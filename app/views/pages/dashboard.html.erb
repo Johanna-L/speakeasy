@@ -128,7 +128,7 @@
     </table>
   <% end %>
 
-  <% if @user.speaker_offerings %>
+  <% if @user.speaker_offerings.any? %>
     <h2 class="py-3">Mon annonce</h2>
     <% @user.speaker_offerings.each do |offering| %>
       <p><%= offering.topic %>; <%= offering.localisation %>; <%= offering.budget %></p>
