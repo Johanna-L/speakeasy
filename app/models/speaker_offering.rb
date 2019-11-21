@@ -3,9 +3,9 @@ class SpeakerOffering < ApplicationRecord
   has_many :bookings, dependent: :destroy
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :topic, :localisation ],
+    against: [:topic, :localisation, :description],
     associated_against: {
-      user: [ :first_name, :last_name ]
+      user: [:first_name, :last_name]
     },
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
