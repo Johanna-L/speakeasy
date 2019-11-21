@@ -132,7 +132,7 @@
     </table>
   <% end %>
 
-  <% if @user.speaker_offerings %>
+  <% if @user.speaker_offerings.any? %>
     <h2 class="py-3">Mon annonce</h2>
     <% @user.speaker_offerings.each do |offering| %>
       <p><%= offering.topic %>; <%= offering.localisation %>; <%= offering.budget %></p>
@@ -145,6 +145,7 @@
   <% else %>
     <% @user.speaker_offerings.each do |offering| %>
       <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>
+      <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
     <% end %>
   <% end %>
 

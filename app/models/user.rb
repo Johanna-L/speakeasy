@@ -15,5 +15,4 @@ class User < ApplicationRecord
   def offer_bookings
     Booking.where(speaker_offering: speaker_offerings)
   end
-
 end
