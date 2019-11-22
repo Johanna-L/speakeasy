@@ -3,18 +3,18 @@
   border-radius: 2px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 55vh;
-  padding: 10px;
+  padding: 30px;
 }
 
 #speaker_offering_description {
-  height: 300px;
+  height: 200px;
 }
 
 .background-img-content {
     padding-top: 15px;
     background-image: image_url("crowd.jpg");
     background-size: cover;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 122px);
     display: flex; /* contexte sur le parent */
     flex-direction: column; /* direction d'affichage verticale */
     justify-content: center;
