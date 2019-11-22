@@ -23,6 +23,25 @@
 </div>
 
   <!-- For organizer -->
+  <!-- For organizer -->
+  <% if @upcoming_bookings.any? %>
+  <h2 class="py-3">Mes réservations à venir</h2>
+    <div class="d-flex justify-content-between align-items flex-start">
+      <li class="card w-75">
+        <div class="card-infos d-flex align-items">
+          <div class ="text">
+            <% @upcoming_bookings.each do |booking| %>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.date.strftime('%d/%m/%Y') %></strong></p>
+              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.user.first_name.capitalize %> <%= booking.speaker_offering.user.last_name.upcase %></p>
+              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </div>
+  <% end %>
+
   <% if @upcoming_bookings.any? %>
     <h2 class="pt-3">Mes réservations à venir</h2>
       <table class="table">
@@ -42,6 +61,24 @@
         </tr>
       <% end %>
     </table>
+  <% end %>
+
+  <% if @past_bookings.any? %>
+  <h2 class="py-3">Mes réservations passées</h2>
+    <div class="d-flex justify-content-between align-items flex-start">
+      <li class="card w-75">
+        <div class="card-infos d-flex align-items">
+          <div class ="text">
+            <% @upcoming_bookings.each do |booking| %>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.date.strftime('%d/%m/%Y') %></strong></p>
+              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.user.first_name.capitalize %> <%= booking.speaker_offering.user.last_name.upcase %></p>
+              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </div>
   <% end %>
 
   <% if @past_bookings.any? %>
@@ -80,6 +117,8 @@
   <% end %>
 
   <!-- For speaker -->
+  <!-- For speaker -->
+
   <% if @upcoming_speaker_bookings.any? %>
     <h2 class="py-3">Mes interventions à venir</h2>
       <table class="table">
@@ -134,19 +173,26 @@
 
   <% if @user.speaker_offerings.any? %>
     <h2 class="py-3">Mon annonce</h2>
-    <% @user.speaker_offerings.each do |offering| %>
-      <p><%= offering.topic %>; <%= offering.localisation %>; <%= offering.budget %></p>
-      <p><%= offering.description %></p>
-    <% end %>
+    <div class="d-flex justify-content-between align-items flex-start">
+      <li class="card w-75">
+        <div class="card-infos d-flex align-items">
+          <div class ="text">
+            <% @user.speaker_offerings.each do |offering| %>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= offering.topic %></strong></p>
+              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= offering.localisation %></p>
+              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
+              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
+              <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>
+              <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </div>
   <% end %>
 
   <% if @user.speaker_offerings.empty? %>
     <%= link_to "Créer mon annonce", new_speaker_offering_path, class: "btn btn-success" %>
-  <% else %>
-    <% @user.speaker_offerings.each do |offering| %>
-      <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>
-      <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
-    <% end %>
   <% end %>
 
 </div>
