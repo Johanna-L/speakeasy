@@ -12,8 +12,8 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><b>Thème : <%= offering.topic.capitalize %></b></li>
-        <li class="list-group-item">Lieu: <%= offering.localisation.capitalize %></li>
-        <li class="list-group-item">Prix: <%= offering.budget %> €</li>
+        <li class="list-group-item">Lieu : <%= offering.localisation.capitalize %></li>
+        <li class="list-group-item">Prix : <%= number_with_delimiter(offering.budget, delimiter: " ") %> €</li>
       </ul>
     </div>
     <% end %>
