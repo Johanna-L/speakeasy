@@ -176,7 +176,7 @@ yannb = User.new({
   email: "yann.barthes@gmail.com",
   password: "123456",
   password_confirmation: "123456",
-  photo: "yann-b.jpg",
+  photo: "yannb-2.jpg",
   company_name: "TMC",
   company_info: "Alimenter le contenu de mes émisions Quotidien"
 })
@@ -303,3 +303,25 @@ booking_obama = Booking.new(
 booking_obama.user = fred
 booking_obama.speaker_offering = conf_obama
 booking_obama.save!
+
+booking_patrick_sebastien = Booking.new(
+  date: DateTime.new(2019, 9, 20))
+booking_patrick_sebastien.user = yannb
+booking_patrick_sebastien.rating = 4
+booking_patrick_sebastien.review = "C'était top! Merci Patrick"
+booking_patrick_sebastien.speaker_offering = conf_patrick
+booking_patrick_sebastien.save!
+
+booking_nabilla = Booking.new(
+  date: DateTime.new(2019, 11, 9))
+booking_nabilla.user = yannb
+booking_nabilla.speaker_offering = conf_nabilla
+booking_nabilla.save!
+
+booking_casimir = Booking.new(
+  date: DateTime.new(2019, 12, 25))
+booking_casimir.user = yannb
+booking_casimir.speaker_offering = conf_casimir
+booking_casimir.save!
+
+
