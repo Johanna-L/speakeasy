@@ -1,9 +1,11 @@
 <div class = "container">
-  <div>
-  <h1 class="text-success text-center">Créer une nouvelle offre</h1>
-  <%= render 'form' %>
-  </div>
+  <%= render 'form', form_title: "Créer une annonce" %>
 </div>
 
 
-
+<style type="text/css">
+  .content {
+/*    background-image: url("../../assets/images/crowd.jpg");
+*/    background-image: asset-url("crowd.jpg", image)
+  }
+</style>
