@@ -13,13 +13,14 @@ class SpeakerOfferingsController < ApplicationController
 
   def show
     @offering = SpeakerOffering.find(params[:id])
+    @booking = Booking.new
   end
 
   def create
     @offering = SpeakerOffering.new(offering_params)
     @offering.user = current_user
     if @offering.save
-      redirect_to speaker_offering_path(@offering)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -33,7 +34,7 @@ class SpeakerOfferingsController < ApplicationController
   def update
     @offering = SpeakerOffering.find(params[:id])
     if @offering.update(offering_params)
-      redirect_to speaker_offering_path(@offering)
+      redirect_to dashboard_path
     else
       render :edit
     end

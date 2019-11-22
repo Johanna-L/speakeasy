@@ -4,14 +4,14 @@
       <h2 class="mb-3" style="color :#58ad87">Prestation proposée par <%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h2>
 
 
-        <div class="card-container">
-          <li class="card w-75">
+        <div class="card-container d-flex algin items">
+          <li class="card w-50">
             <div class="card-infos d-flex align-items">
               <div class ="text">
-              <!-- <h4><%= @offering.user.first_name %> <%= @offering.user.last_name %></h4> -->
-              <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic %></strong></p>
-              <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation %></p>
-              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description %></p>
+              <!-- <h4><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h4> -->
+              <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic.capitalize %></strong></p>
+              <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation.capitalize %></p>
+              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description.capitalize %></p>
               <p><i class="fas fa-tags" style="color :#58ad87"></i> <%=  @offering.budget %> €</p>
               </div>
               <div class ="image_card">
@@ -19,16 +19,25 @@
             </div>
           </li>
       </ul>
-    </div>
-  </div>
+        <% unless current_user == @offering.user %>
+       <div class="booking-form w-50">
+        <div class ="card ml-5 p-3">
+        <h5 style="color :#58ad87"><strong>Réservez cette prestation</strong></h5>
+        <%= simple_form_for ([ @offering, @booking ]) do |f| %>
+          <%= f.input :event_type, :label => "Courte description de l'événement", placeholder: "Quel sera le sujet? Durée de l'événement?" %>
+          <%= f.input :date, placeholder: "Quand aura t'il lieu?" %>
+          <%= f.submit 'Valider', class:'btn btn-success' %>
+        <% end %>
+      </div>
+        <% end %>
+        </div>
 
   <% if  user_signed_in? && @offering.user == current_user %>
     <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
     <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
   <% end %>
 </div>
-     <!--  <% unless current_user == @offering.user %>
-        <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-50"%>
-      <% end %> -->
 
-
+    </div>
+  </div>
+</div>

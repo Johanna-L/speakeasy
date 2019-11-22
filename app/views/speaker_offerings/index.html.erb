@@ -7,12 +7,12 @@
     <div class="card mycard" style="width: 18rem;">
       <%= image_tag offering.user.photo, class: "card-img-top"%>
       <div class="card-body">
-        <h5 class="card-title"><%= offering.user.first_name %> <%= offering.user.last_name %></h5>
+        <h5 class="card-title"><%= offering.user.first_name.capitalize %> <%= offering.user.last_name.capitalize %></h5>
         <p class="card-text"><%= truncate(offering.description, length: 89, omission: '...') %></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Thème : <%= offering.topic %></b></li>
-        <li class="list-group-item">Lieu: <%= offering.localisation %></li>
+        <li class="list-group-item"><b>Thème : <%= offering.topic.capitalize %></b></li>
+        <li class="list-group-item">Lieu: <%= offering.localisation.capitalize %></li>
         <li class="list-group-item">Prix: <%= offering.budget %> €</li>
       </ul>
     </div>

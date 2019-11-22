@@ -176,7 +176,7 @@ yannb = User.new({
   email: "yann.barthes@gmail.com",
   password: "123456",
   password_confirmation: "123456",
-  photo: "yannb.png",
+  photo: "yann-b.jpg",
   company_name: "TMC",
   company_info: "Alimenter le contenu de mes émisions Quotidien"
 })
