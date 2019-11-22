@@ -13,6 +13,7 @@ class SpeakerOfferingsController < ApplicationController
 
   def show
     @offering = SpeakerOffering.find(params[:id])
+    @booking = Booking.new
   end
 
   def create
