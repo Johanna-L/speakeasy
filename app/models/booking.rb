@@ -6,4 +6,12 @@ class Booking < ApplicationRecord
 
   scope :past_bookings, -> { where("date < ?", Date.today) }
   scope :upcoming_bookings, -> { where("date >= ?", Date.today) }
+
+  before_validation :default_values
+
+  private
+
+  def default_values
+    self.rating = 0
+  end
 end
