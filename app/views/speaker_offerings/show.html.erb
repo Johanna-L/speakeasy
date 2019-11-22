@@ -1,34 +1,35 @@
 <div class="container">
-  <div class="d-flex justify-content-between align-items flex-start">
-    <div class="title-offering">
-      <h2 class="mb-3" style="color :#58ad87">Prestation proposée par <%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h2>
-
-
-        <div class="card-container">
-          <li class="card w-75">
-            <div class="card-infos d-flex align-items">
-              <div class ="text">
-              <!-- <h4><%= @offering.user.first_name %> <%= @offering.user.last_name %></h4> -->
-              <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic %></strong></p>
-              <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation %></p>
-              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description %></p>
-              <p><i class="fas fa-tags" style="color :#58ad87"></i> <%=  @offering.budget %> €</p>
+  <div>
+    <div class="d-flex justify-content-between align-items flex-start">
+      <div class="title-offering">
+        <h2 class="mb-3" style="color :#58ad87">Prestation proposée par <%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h2>
+        <ul>
+          <div class="card-container">
+            <li class="card w-75">
+              <div class="card-infos d-flex align-items">
+                <div class ="text">
+                <!-- <h4><%= @offering.user.first_name %> <%= @offering.user.last_name %></h4> -->
+                <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic %></strong></p>
+                <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation %></p>
+                <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description %></p>
+                <p><i class="fas fa-tags" style="color :#58ad87"></i> <%=  @offering.budget %> €</p>
+                </div>
+                <div class ="image_card">
+                 <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
               </div>
-              <div class ="image_card">
-               <%= image_tag @offering.user.photo, alt: "profile_pic", class:"rounded profile_pic", style:"width: 200px" %>
-            </div>
-          </li>
-      </ul>
+            </li>
+          </div>
+        </ul>
+      </div>
     </div>
   </div>
-
   <% if  user_signed_in? && @offering.user == current_user %>
     <%= link_to "Modifier mon offre", edit_speaker_offering_path(@offering), class: "btn btn-success" %>
     <%= link_to "Retirer mon offre", speaker_offering_path(@offering), method: :delete, class: "btn btn-success" %>
   <% end %>
-</div>
-     <!--  <% unless current_user == @offering.user %>
-        <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success w-50"%>
-      <% end %> -->
 
+  <% unless current_user == @offering.user %>
+    <%= link_to 'Réserver', new_speaker_offering_booking_path(@offering), class: "btn btn-success"%>
+  <% end %>
+</div>
 
