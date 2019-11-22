@@ -16,7 +16,7 @@
             <div class ="text text-justify pr-3">
               <!-- <h4><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h4> -->
               <p><i class="fas b fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic.capitalize %></strong></p>
-              <p><i class="fas b fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation.capitalize %></p>
+              <p><i class="fas b fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation %></p>
               <p><i class="fas b fa-tags" style="color :#58ad87"></i> <%=  number_with_delimiter(@offering.budget, delimiter: " ") %> €</p>
             </div>
             <div class ="image_card">
