@@ -217,7 +217,11 @@ conf_patrick.save!
 
 # Emma Watson
 conf_emma = SpeakerOffering.new(
-  description: "Être une femme artiste & engagée, ce n'est pas facile mais je tente de m'imposer dans ce monde. Je me bats pour nos droits en tant que femme, et d'autres ONG.",
+  description: "Être une femme artiste & engagée, ce n'est pas facile mais je tente de m'imposer dans ce monde. Je suis devenue célèbre en jouant, de son enfance en 2001 à l'âge adulte en 2011, le rôle d'Hermione Granger, l'un des trois rôles principaux dans la série des films Harry Potter. Elle est nommée pour de nombreuses récompenses pour son rôle, et en remporte plusieurs.
+
+Ce n’est qu’après avoir tourné tous les opus de Harry Potter que je me suis attaquée à des rôles très différents. Je me bats pour nos droits en tant que femme, et d'autres ONG.En juillet 2014, elle est nommée ambassadrice de bonne volonté par l'ONU Femmes.
+
+Depuis 2015, je suis plus aujourd'hui plus investie dans la lutte pour le droit des femmes. Ma vie est mon combat comme artiste engagée",
   topic: "Femme",
   budget: 500000,
   localisation: "New York"
@@ -258,7 +262,11 @@ conf_yannick.save!
 
 # Didier Deschamps
 conf_didier = SpeakerOffering.new(
-  description: "Le foot est toute ma vie. D'abord en tant que joueur à ma belle époque, j'ai été champion du monde pour la France à la fois en tant que footballer et coach de l'équipe. C'est une double fierté, et surtout de la perséverance, de la cohésion d'équipe & de la motivation à toute épreuve. Grâce à ma carrière sportive, je pourrais échanger avec vous sur mon sport en particulier mais aussi parler des compétences nécessaires pour un sportif de haut niveau.",
+  description: "Mon rôle est de pousser le joueur à donner le meilleur d'eux même.Le foot est toute ma vie. D'abord en tant que joueur à ma belle époque, j'ai été champion du monde pour la France à la fois en tant que footballer et coach de l'équipe. C'est une double fierté, et surtout de la perséverance, de la cohésion d'équipe & de la motivation à toute épreuve. Grâce à ma carrière sportive, je pourrais échanger avec vous sur mon sport en particulier mais aussi parler des compétences nécessaires pour un sportif de haut niveau.Avec les Bleus, je gagne la Coupe du monde 1998 et le Championnat d'Europe 2000. Je suis ainsi le premier capitaine français à soulever le trophée de la Coupe du monde, et le deuxième (après Michel Platini) à prendre en mains celui de la compétition continentale.
+
+En 2001, je suis nommé entraîneur de l'AS Monaco, club avec lequel il dispute la finale de Ligue des champions 2004. En 2006, j'entraîne pendant une saison la Juventus reléguée administrativement en Serie B que je fais remonter malgré la sanction de retard de points à l'entame de la saison. Après une pause de deux ans, je reviens à l'OM où je remporte le titre de champion de France 2010 ainsi que trois coupes de la ligue.
+
+Je quitte l'OM en 2012 pour prendre les rênes de l'équipe de France, que j'emmène en quart de finale de la Coupe du monde 2014 au Brésil puis en finale de l'Euro 2016, perdue en prolongation face au Portugal (1-0).",
   topic: "Sport",
   budget: 15000,
   localisation: "Paris"
