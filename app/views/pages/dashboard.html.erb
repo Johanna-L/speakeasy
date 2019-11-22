@@ -32,9 +32,9 @@
             <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
-            <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
-            <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
-            <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
+              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
+              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <% end %>
           </div>
       </div>
@@ -52,7 +52,7 @@
                   - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
             <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
             <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= truncate(booking.speaker_offering.description, length: 300, omission: '...') %></p>
-            <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
+            <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <div id="comments-container">
               <% if booking.review.nil? %>
                 <%= simple_form_for(booking) do |f| %>
