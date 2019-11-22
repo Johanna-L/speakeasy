@@ -2,7 +2,7 @@
   background: white;
   border-radius: 2px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 45vh;
+  width: 55vh;
   padding: 10px;
 }
 
@@ -10,3 +10,12 @@
   height: 300px;
 }
 
+.background-img-content {
+    padding-top: 15px;
+    background-image: image_url("crowd.jpg");
+    background-size: cover;
+    height: calc(100vh - 112px);
+    display: flex; /* contexte sur le parent */
+    flex-direction: column; /* direction d'affichage verticale */
+    justify-content: center;
+}
