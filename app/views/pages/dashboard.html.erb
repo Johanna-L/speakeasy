@@ -29,10 +29,10 @@
       <div class ="text">
         <% @upcoming_bookings.each do |booking| %>
           <div class="card card-dashboard card-infos d-flex align-items">
-            <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+            <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
-              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <% end %>
@@ -47,12 +47,12 @@
       <div class ="text">
         <% @past_bookings.each do |booking| %>
           <div class="card card-dashboard card-infos d-flex align-items">
-            <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
-                  <%= booking.speaker_offering.user.last_name.upcase %></strong>
-                  - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
-            <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
-            <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= truncate(booking.speaker_offering.description, length: 300, omission: '...') %></p>
-            <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
+           <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+                <%= booking.speaker_offering.user.last_name.upcase %></strong>
+                - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
+              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <div id="comments-container">
               <% if booking.review.nil? %>
                 <%= simple_form_for(booking) do |f| %>
@@ -136,9 +136,9 @@
         <% @user.speaker_offerings.each do |offering| %>
           <div class="card card-dashboard card-infos d-flex align-items">
             <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= offering.topic %></strong></p>
-            <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= offering.localisation %></p>
-            <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
-            <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
+             <p><i class="fas fa-map-marker-alt mr-2" style="color :#58ad87"> </i><%= offering.localisation %></p>
+             <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
+             <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
             <div class="d-flex">
               <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success mr-3", style:"width: 220px" %>
               <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success", style:"width: 220px" %>
