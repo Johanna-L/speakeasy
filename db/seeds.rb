@@ -190,7 +190,7 @@ conf_obama = SpeakerOffering.new(
   description: "Ayant présidé deux mandats aux USA, je suis à l'aise pour échanger avec vous sur tous sujets politiques et pour partager mon expérience avec vous.",
   topic: "Politique",
   budget: 500000,
-  localisation: "Washington"
+  localisation: "Washington, DC"
   )
 conf_obama.user = barack
 conf_obama.save!
@@ -222,9 +222,9 @@ conf_emma = SpeakerOffering.new(
 Ce n’est qu’après avoir tourné tous les opus de Harry Potter que je me suis attaquée à des rôles très différents. Je me bats pour nos droits en tant que femme, et d'autres ONG.En juillet 2014, elle est nommée ambassadrice de bonne volonté par l'ONU Femmes.
 
 Depuis 2015, je suis plus aujourd'hui plus investie dans la lutte pour le droit des femmes. Ma vie est mon combat comme artiste engagée",
-  topic: "Femme",
+  topic: "Artiste, Ambassadrice",
   budget: 500000,
-  localisation: "New York"
+  localisation: "New York, NY"
   )
 conf_emma.user = emma
 conf_emma.save!
