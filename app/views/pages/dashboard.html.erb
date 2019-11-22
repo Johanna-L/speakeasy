@@ -23,7 +23,7 @@
 
   <!-- For organizer -->
   <% if @upcoming_bookings.any? %>
-    <h2 class="pt-3">Mes réservations à venir</h2>
+    <h2 class="pt-3 h2_dashboard">Mes réservations à venir</h2>
       <table class="table">
       <tr>
         <th>Date</th>
@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @past_bookings.any? %>
-    <h2 class="py-3">Mes réservations passées</h2>
+    <h2 class="h2_dashboard">Mes réservations passées</h2>
     <table class="table">
       <tr>
         <th>Date</th>
@@ -52,6 +52,7 @@
         <th>Intervenant</th>
         <th>Rating</th>
         <th>Commentaire</th>
+        <th>Action</th>
       </tr>
 
       <% @past_bookings.each do |booking| %>
@@ -64,14 +65,13 @@
           <% if booking.review.nil? %>
             <%= simple_form_for(booking) do |f| %>
               <td><%= f.input_field :rating, hint: '0 to 5' %></td>
-              <td>
-                <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
-                <%= f.submit "Evaluer", class:'btn btn-success' %>
-              </td>
+              <td><%= f.input_field :review, placeholder: 'Votre commentaire' %></td>
+              <td><%= f.submit "Evaluer", class:'btn btn-success' %></td>
             <% end %>
           <% else %>
             <td><%= booking.rating %></td>
             <td><%= booking.review %></td>
+            <td><% %></td>
           <% end %>
         </tr>
       <% end %>
