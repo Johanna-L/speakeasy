@@ -30,10 +30,10 @@
         <div class="card-infos d-flex align-items">
           <div class ="text">
             <% @upcoming_bookings.each do |booking| %>
-              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+              <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
-              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
             <% end %>
@@ -50,10 +50,10 @@
         <div class="card-infos d-flex align-items">
           <div class ="text">
             <% @past_bookings.each do |booking| %>
-              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+              <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
-              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
+              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
             <div id="comments-container">
@@ -177,7 +177,7 @@
           <div class ="text">
             <% @user.speaker_offerings.each do |offering| %>
               <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= offering.topic %></strong></p>
-              <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= offering.localisation %></p>
+              <p><i class="fas fa-map-marker-alt mr-2" style="color :#58ad87"> </i><%= offering.localisation %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
               <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>

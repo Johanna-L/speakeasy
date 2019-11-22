@@ -1,21 +1,23 @@
-<h1 id="h1-offers">Speakers disponibles</h1>
+<div class="content-index mt-3">
+  <h1 id="h1-offers">Speakers disponibles</h1>
 
-<div class="main-container">
+  <div class="main-container">
 
-  <% @offerings.each do |offering| %>
-  <%= link_to speaker_offering_path(offering) do %>
-    <div class="card mycard" style="width: 18rem;">
-      <%= image_tag offering.user.photo, class: "card-img-top"%>
-      <div class="card-body">
-        <h5 class="card-title"><%= offering.user.first_name.capitalize %> <%= offering.user.last_name.capitalize %></h5>
-        <p class="card-text"><%= truncate(offering.description, length: 89, omission: '...') %></p>
+    <% @offerings.each do |offering| %>
+    <%= link_to speaker_offering_path(offering) do %>
+      <div class="card mycard" style="width: 18rem;">
+        <%= image_tag offering.user.photo, class: "card-img-top"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= offering.user.first_name.capitalize %> <%= offering.user.last_name.capitalize %></h5>
+          <p class="card-text"><%= truncate(offering.description, length: 89, omission: '...') %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fas b fa-poll" style="color :#58ad87"></i><b><%= offering.topic.capitalize %></b></li>
+          <li class="list-group-item"><i class="fas b fa-map-marker-alt" style="color :#58ad87"></i><%= offering.localisation %></li>
+          <li class="list-group-item"><i class="fas b fa-tags" style="color :#58ad87"></i><%= offering.budget %> €</li>
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Thème : <%= offering.topic.capitalize %></b></li>
-        <li class="list-group-item">Lieu: <%= offering.localisation.capitalize %></li>
-        <li class="list-group-item">Prix: <%= offering.budget %> €</li>
-      </ul>
-    </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
