@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-3">
 <div class="d-flex justify-content-between pt-3">
 
   <div>
@@ -24,13 +24,12 @@
   <!-- For organizer -->
   <!-- For organizer -->
   <% if @upcoming_bookings.any? %>
-  <h2 class="py-3 h2_dashboard">Mes réservations à venir</h2>
+  <h2 class="pt-4 h2_dashboard">Mes réservations à venir</h2>
     <div class="d-flex justify-content-between align-items flex-start">
-      <li class="card w-75">
-        <div class="card-infos d-flex align-items">
-          <div class ="text">
-            <% @upcoming_bookings.each do |booking| %>
-              <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+      <div class ="text">
+        <% @upcoming_bookings.each do |booking| %>
+          <div class="card card-dashboard card-infos d-flex align-items">
+            <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
               <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
@@ -38,33 +37,31 @@
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <% end %>
           </div>
-        </div>
-      </li>
+      </div>
     </div>
   <% end %>
 
   <% if @past_bookings.any? %>
-  <h2 class="py-3 h2_dashboard">Mes réservations passées</h2>
+  <h2 class="pt-4 h2_dashboard">Mes réservations passées</h2>
     <div class="d-flex justify-content-between align-items flex-start">
-      <li class="card w-75">
-        <div class="card-infos d-flex align-items">
-          <div class ="text">
-            <% @past_bookings.each do |booking| %>
-              <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
+      <div class ="text">
+        <% @past_bookings.each do |booking| %>
+          <div class="card card-dashboard card-infos d-flex align-items">
+           <p><i class="fas fa-user mr-2" style="color :#58ad87"></i> <strong><%= booking.speaker_offering.user.first_name.capitalize %>
                 <%= booking.speaker_offering.user.last_name.upcase %></strong>
                 - <em><%= booking.date.strftime('%d/%m/%Y') %></em></p>
               <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.topic.capitalize %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= number_with_delimiter(booking.speaker_offering.budget, delimiter: " ") %> €</p>
             <div id="comments-container">
-                <% if booking.review.nil? %>
-                  <%= simple_form_for(booking) do |f| %>
+              <% if booking.review.nil? %>
+                <%= simple_form_for(booking) do |f| %>
                   <div class="d-flex align-items justify-content-between">
-                      <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
-                      <div>
-                        <%= f.input :rating, hint: '0 to 5', style:"width: 40px" %>
-                        <%= f.submit "Evaluer", class:'btn btn-success', style:'width: 150px' %>
-                      </div>
+                    <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
+                    <div>
+                      <%= f.input :rating, hint: '0 to 5', style:"width: 40px" %>
+                      <%= f.submit "Evaluer", class:'btn btn-success', style:'width: 150px' %>
+                    </div>
                   </div>
                 <% end %>
               <% else %>
@@ -72,53 +69,16 @@
                 <p>Commentaire : <%= booking.review %></p>
               <% end %>
             </div>
-            <% end %>
           </div>
-        </div>
-      </li>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
-<!--   <% if @past_bookings.any? %>
-    <h2 class="py-3">Mes réservations passées</h2>
-    <table class="table">
-      <tr>
-        <th>Date</th>
-        <th>Titre</th>
-        <th>Intervenant</th>
-        <th>Rating</th>
-        <th>Commentaire</th>
-      </tr>
-
-      <% @past_bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.date.strftime('%d/%m/%Y') %></td>
-          <td><%= booking.speaker_offering.topic.capitalize %></td>
-          <td><%= booking.speaker_offering.user.first_name.capitalize %>
-              <%= booking.speaker_offering.user.last_name.upcase %>
-          </td>
-          <% if booking.review.nil? %>
-            <%= simple_form_for(booking) do |f| %>
-              <td><%= f.input_field :rating, hint: '0 to 5' %></td>
-              <td>
-                <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
-                <%= f.submit "Evaluer", class:'btn btn-success' %>
-              </td>
-            <% end %>
-          <% else %>
-            <td><%= booking.rating %></td>
-            <td><%= booking.review %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  <% end %> -->
-
-  <!-- For speaker -->
   <!-- For speaker -->
 
   <% if @upcoming_speaker_bookings.any? %>
-    <h2 class="py-3 h2_dashboard">Mes interventions à venir</h2>
+    <h2 class="pt-4 h2_dashboard">Mes interventions à venir</h2>
       <table class="table">
       <tr>
         <th>Date</th>
@@ -170,22 +130,22 @@
   <% end %>
 
   <% if @user.speaker_offerings.any? %>
-    <h2 class="py-3 h2_dashboard">Mon annonce</h2>
+    <h2 class="pt-4 h2_dashboard">Mon annonce</h2>
     <div class="d-flex justify-content-between align-items flex-start">
-      <li class="card w-75">
-        <div class="card-infos d-flex align-items">
-          <div class ="text">
-            <% @user.speaker_offerings.each do |offering| %>
-              <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= offering.topic %></strong></p>
-              <p><i class="fas fa-map-marker-alt mr-2" style="color :#58ad87"> </i><%= offering.localisation %></p>
-              <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
-              <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
-              <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success" %>
-              <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success" %>
-            <% end %>
+      <div class ="text">
+        <% @user.speaker_offerings.each do |offering| %>
+          <div class="card card-dashboard card-infos d-flex align-items">
+            <p><i class="fas fa-poll mr-2" style="color :#58ad87"></i> <strong><%= offering.topic %></strong></p>
+             <p><i class="fas fa-map-marker-alt mr-2" style="color :#58ad87"> </i><%= offering.localisation %></p>
+             <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= offering.description %></p>
+             <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= offering.budget %> €</p>
+            <div class="d-flex">
+              <%= link_to "Modifier mon annonce", edit_speaker_offering_path(offering), class: "btn btn-success mr-3", style:"width: 220px" %>
+              <%= link_to "Retirer mon annonce", speaker_offering_path(offering), method: :delete, class: "btn btn-success", style:"width: 220px" %>
+            </div>
           </div>
-        </div>
-      </li>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
