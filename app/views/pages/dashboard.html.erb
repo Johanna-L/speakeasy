@@ -24,7 +24,7 @@
   <!-- For organizer -->
   <!-- For organizer -->
   <% if @upcoming_bookings.any? %>
-  <h2 class="py-3">Mes réservations à venir</h2>
+  <h2 class="py-3 h2_dashboard">Mes réservations à venir</h2>
     <div class="d-flex justify-content-between align-items flex-start">
       <li class="card w-75">
         <div class="card-infos d-flex align-items">
@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @past_bookings.any? %>
-  <h2 class="py-3">Mes réservations passées</h2>
+  <h2 class="py-3 h2_dashboard">Mes réservations passées</h2>
     <div class="d-flex justify-content-between align-items flex-start">
       <li class="card w-75">
         <div class="card-infos d-flex align-items">
@@ -61,8 +61,7 @@
                   <%= simple_form_for(booking) do |f| %>
                   <div>
                     <div class="note">
-                      <p>Note :</p>
-                      <p><%= f.input_field :rating, hint: '0 to 5' %></p>
+                      <p>Note : <%= f.input_field :rating, hint: '0 to 5' %></p>
                     </div>
                     <div class="commentaire">
                       <p>Commentaire :</p>
@@ -74,9 +73,7 @@
                   </div>
                 <% end %>
               <% else %>
-                <p>Note : <%= booking.rating %></p>
-                <p>Commentaire :</p>
-                <p><%= booking.review %></p>
+                <p>Note : <%= booking.rating %> <%= "  /  " %>   Commentaire : <%= booking.review %></p>
               <% end %>
             </div>
             <% end %>
