@@ -7,11 +7,11 @@
         <div class="card-container d-flex algin items">
           <li class="card w-50">
             <div class="card-infos d-flex align-items">
-              <div class ="text">
+              <div class ="text text-justify">
               <!-- <h4><%= @offering.user.first_name.capitalize %> <%= @offering.user.last_name.capitalize %></h4> -->
               <p><i class="fas fa-poll" style="color :#58ad87"></i> <strong><%=  @offering.topic.capitalize %></strong></p>
               <p><i class="fas fa-map-marker-alt" style="color :#58ad87"> </i> <%=  @offering.localisation.capitalize %></p>
-              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description.capitalize %></p>
+              <p><i class="fas fa-search-plus" style="color :#58ad87"></i> <%=  @offering.description %></p>
               <p><i class="fas fa-tags" style="color :#58ad87"></i> <%=  @offering.budget %> €</p>
               </div>
               <div class ="image_card">
