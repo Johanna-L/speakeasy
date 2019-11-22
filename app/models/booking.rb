@@ -12,6 +12,6 @@ class Booking < ApplicationRecord
   private
 
   def default_values
-    self.rating = 0
+    self.rating = 0 if self.rating.nil?
   end
 end
