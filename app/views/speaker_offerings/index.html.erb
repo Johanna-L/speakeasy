@@ -15,7 +15,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><i class="fas b fa-poll" style="color :#58ad87"></i><b><%= offering.topic.capitalize %></b></li>
           <li class="list-group-item"><i class="fas b fa-map-marker-alt" style="color :#58ad87"></i><%= offering.localisation %></li>
-          <li class="list-group-item"><i class="fas b fa-tags" style="color :#58ad87"></i><%= offering.budget %> €</li>
+          <li class="list-group-item"><i class="fas b fa-tags" style="color :#58ad87"></i><%= number_with_delimiter(offering.budget, delimiter: " ") %> €</li>
         </ul>
       </div>
       <% end %>
