@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row">
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row">
 
   <div class="icon-left">
     <%= link_to root_path, class: "navbar-brand" do %>
@@ -6,11 +6,9 @@
   <% end %>
   </div>
 
-
   <div>
     <h1 class='text-left'>Spikizy</h1>
   </div>
-
 
 
 <div class="d-flex">
@@ -19,12 +17,11 @@
       <%= text_field_tag :query,
         params[:query],
         class: "form-control mr-sm-0",
-        placeholder: "search offerings"
+        placeholder: "Recherche détaillée"
       %>
       <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
     <% end %>
   </div>
-
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
