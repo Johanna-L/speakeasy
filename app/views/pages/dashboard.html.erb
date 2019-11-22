@@ -24,7 +24,7 @@
   <!-- For organizer -->
   <!-- For organizer -->
   <% if @upcoming_bookings.any? %>
-  <h2 class="py-3">Mes réservations à venir</h2>
+  <h2 class="py-3 h2_dashboard">Mes réservations à venir</h2>
     <div class="d-flex justify-content-between align-items flex-start">
       <li class="card w-75">
         <div class="card-infos d-flex align-items">
@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @past_bookings.any? %>
-  <h2 class="py-3">Mes réservations passées</h2>
+  <h2 class="py-3 h2_dashboard">Mes réservations passées</h2>
     <div class="d-flex justify-content-between align-items flex-start">
       <li class="card w-75">
         <div class="card-infos d-flex align-items">
@@ -56,27 +56,20 @@
               <p><i class="fas fa-map-marker-alt mr-3" style="color :#58ad87"> </i><%= booking.speaker_offering.topic.capitalize %></p>
               <p><i class="fas fa-search-plus mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.description %></p>
               <p><i class="fas fa-tags mr-2" style="color :#58ad87"></i> <%= booking.speaker_offering.budget %> €</p>
-            <div id="comments-container" class="d-flex align-items justify-content-between">
+            <div id="comments-container">
                 <% if booking.review.nil? %>
                   <%= simple_form_for(booking) do |f| %>
-                  <div>
-                    <div class="note">
-                      <p>Note :</p>
-                      <p><%= f.input_field :rating, hint: '0 to 5' %></p>
-                    </div>
-                    <div class="commentaire">
-                      <p>Commentaire :</p>
-                      <p>
-                        <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
-                      </p>
-                        <%= f.submit "Evaluer", class:'btn btn-success' %>
-                    </div>
+                  <div class="d-flex align-items justify-content-between">
+                      <%= f.input_field :review, placeholder: 'Laissez un commentaire' %>
+                      <div>
+                        <%= f.input :rating, hint: '0 to 5', style:"width: 40px" %>
+                        <%= f.submit "Evaluer", class:'btn btn-success', style:'width: 150px' %>
+                      </div>
                   </div>
                 <% end %>
               <% else %>
                 <p>Note : <%= booking.rating %></p>
-                <p>Commentaire :</p>
-                <p><%= booking.review %></p>
+                <p>Commentaire : <%= booking.review %></p>
               <% end %>
             </div>
             <% end %>
@@ -125,7 +118,7 @@
   <!-- For speaker -->
 
   <% if @upcoming_speaker_bookings.any? %>
-    <h2 class="py-3">Mes interventions à venir</h2>
+    <h2 class="py-3 h2_dashboard">Mes interventions à venir</h2>
       <table class="table">
       <tr>
         <th>Date</th>
@@ -146,7 +139,7 @@
     <% end %>
 
   <% if @past_speaker_bookings.any? %>
-    <h2 class="py-3">Mes interventions passées</h2>
+    <h2 class="py-3 h2_dashboard">Mes interventions passées</h2>
     <table class="table">
       <tr>
         <th>Date</th>
@@ -177,7 +170,7 @@
   <% end %>
 
   <% if @user.speaker_offerings.any? %>
-    <h2 class="py-3">Mon annonce</h2>
+    <h2 class="py-3 h2_dashboard">Mon annonce</h2>
     <div class="d-flex justify-content-between align-items flex-start">
       <li class="card w-75">
         <div class="card-infos d-flex align-items">
